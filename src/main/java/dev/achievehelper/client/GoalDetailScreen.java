@@ -56,10 +56,10 @@ public final class GoalDetailScreen extends Screen {
 		ModConfig config = tracker.config();
 		int left = 10;
 		int panelWidth = width - 20;
-		int accent = tracker.isPinned(goalId) ? GoalPanel.PINNED_COLOR : GoalPanel.SUGGESTED_COLOR;
+		GoalPanel.Mark mark = GoalPanel.Mark.of(goalId);
 		// Header: same panel as on the HUD, without the icon grid (shown in full below).
 		int y = 6 + GoalPanel.draw(g, font, t, left, 6, panelWidth, new GoalPanel.Style(0, true, true, config.mobModels),
-				accent, mouseX, mouseY) + 6;
+				mark, mouseX, mouseY) + 6;
 
 		int top = y;
 		int bottom = height - 32;

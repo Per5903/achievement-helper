@@ -20,6 +20,26 @@ public final class GoalPanel {
 	public static final int SUGGESTED_COLOR = 0xFF55FFFF;
 	public static final int CHALLENGE_COLOR = 0xFFAA55FF;
 
+	/** Why a goal is shown: the player pinned it, the autopilot suggested it, or neither (just looked at). */
+	public enum Mark {
+		PINNED(PINNED_COLOR), SUGGESTED(SUGGESTED_COLOR), PLAIN(0xFF808080);
+
+		final int color;
+
+		Mark(int color) {
+			this.color = color;
+		}
+
+		public static Mark of(String id) {
+			AdvancementTracker tracker = AdvancementTracker.INSTANCE;
+			if (tracker.isPinned(id)) return PINNED;
+			TrackedGoal s = tracker.suggestion();
+			return s != null && s.id().equals(id) && tracker.config().autopilot ? SUGGESTED : PLAIN;
+		}
+	}
+
+	private static final net.minecraft.world.item.ItemStack COMPASS = new net.minecraft.world.item.ItemStack(net.minecraft.world.item.Items.COMPASS);
+	private static final int MARK_WIDTH = 10;
 	private static final int CELL = 17;
 	private static final int HEADER = 20;
 
@@ -69,7 +89,8 @@ public final class GoalPanel {
 
 	/** @return the panel height. Pass mouse coordinates to get tooltips over icons, or -1. */
 	public static int draw(GuiGraphicsExtractor g, Font font, TrackedGoal t, int x, int y, int width, Style style,
-			int accent, int mouseX, int mouseY) {
+			Mark mark, int mouseX, int mouseY) {
+		int accent = mark.color;
 		Goal goal = t.goal();
 		Layout l = layout(font, t, width, style);
 		g.fill(x, y, x + width, y + l.height(), 0xA0000000);
@@ -78,11 +99,27 @@ public final class GoalPanel {
 		g.item(t.icon(), x + 4, y + 2);
 		String count = goal.isChecklist() ? goal.completed() + "/" + goal.total() : "";
 		int countWidth = font.width(count);
+		int markWidth = mark == Mark.PLAIN ? 0 : MARK_WIDTH;
 		if (style.titles()) {
-			String title = font.plainSubstrByWidth(t.title().getString(), width - 26 - countWidth - 4);
+			String title = font.plainSubstrByWidth(t.title().getString(), width - 26 - countWidth - markWidth - 4);
 			g.text(font, title, x + 22, y + 3, 0xFFFFFFFF, true);
 		}
 		if (!count.isEmpty()) g.text(font, count, x + width - 3 - countWidth, y + 3, 0xFFAAAAAA, true);
+		// Pinned: gold star. Suggested by the autopilot: a small compass. So the two are never confused.
+		int mx = x + width - 3 - countWidth - (count.isEmpty() ? 0 : 2) - 8;
+		if (mark == Mark.PINNED) {
+			g.text(font, "★", mx, y + 3, PINNED_COLOR, true);
+		} else if (mark == Mark.SUGGESTED) {
+			Matrix3x2fStack pose = g.pose();
+			pose.pushMatrix();
+			pose.translate(mx, y + 2);
+			pose.scale(0.5f, 0.5f);
+			g.item(COMPASS, 0, 0);
+			pose.popMatrix();
+		}
+		if (mark != Mark.PLAIN && mouseX >= mx - 1 && mouseX < mx + 9 && mouseY >= y + 1 && mouseY < y + 12) {
+			g.setTooltipForNextFrame(font, Component.translatable(mark == Mark.PINNED ? "achievehelper.mark.pinned" : "achievehelper.mark.suggested"), mouseX, mouseY);
+		}
 		if (mouseX >= x + 4 && mouseX < x + 20 && mouseY >= y + 2 && mouseY < y + 18) {
 			g.setTooltipForNextFrame(font, t.title(), mouseX, mouseY);
 		}

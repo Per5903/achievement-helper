@@ -83,8 +83,8 @@ public final class HudOverlay {
 		int y = p.y();
 		for (int i = 0; i < p.goals().size(); i++) {
 			TrackedGoal t = p.goals().get(i);
-			int accent = tracker.isPinned(t.id()) ? GoalPanel.PINNED_COLOR : GoalPanel.SUGGESTED_COLOR;
-			GoalPanel.draw(g, mc.font, t, p.x(), y, p.width(), style, accent, -1, -1);
+			GoalPanel.Mark mark = tracker.isPinned(t.id()) ? GoalPanel.Mark.PINNED : GoalPanel.Mark.SUGGESTED;
+			GoalPanel.draw(g, mc.font, t, p.x(), y, p.width(), style, mark, -1, -1);
 			y += p.heights().get(i) + GAP;
 		}
 		pose.popMatrix();

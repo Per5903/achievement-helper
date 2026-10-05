@@ -77,6 +77,10 @@ public final class AchieveHelperClientTest implements FabricClientGameTest {
 				TrackedGoal suggestion = tracker.suggestion();
 				System.out.println("[achievehelper-test] top suggestions: " + tracker.all().stream().filter(t -> t == suggestion).map(TrackedGoal::id).toList());
 				check(suggestion != null && suggestion.goal().effort() <= 2, "suggestion should be an easy goal: " + (suggestion == null ? null : suggestion.id()));
+				// Pinned, suggested and other goals must look different (a suggestion is not a pin).
+				check(dev.achievehelper.client.GoalPanel.Mark.of(suggestion.id()) == dev.achievehelper.client.GoalPanel.Mark.SUGGESTED, "suggestion is marked as suggested");
+				check(dev.achievehelper.client.GoalPanel.Mark.of("minecraft:story/mine_stone") == dev.achievehelper.client.GoalPanel.Mark.PINNED, "pin is marked as pinned");
+				check(dev.achievehelper.client.GoalPanel.Mark.of(DIET) == dev.achievehelper.client.GoalPanel.Mark.PLAIN, "unpinned, unsuggested goal is plain");
 			});
 			context.waitTicks(5);
 			context.takeScreenshot("achievehelper-hints");

@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+- Pinned and autopilot-suggested goals no longer look alike: pinned goals show a gold ★, the suggestion a
+  small compass (with a tooltip); in the checklist the suggestion has a cyan frame and says so on hover.
+  Pinning the suggestion used to look like "a different goal got pinned" because the next suggestion took its place.
+
 ## 0.1.1
 
 - Needed items in containers: thicker gold frame and a softly pulsing gold glow behind the item.

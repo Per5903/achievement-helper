@@ -137,8 +137,7 @@ public final class ChecklistScreen extends Screen {
 
 		TrackedGoal info = hovered != null ? hovered : tracker.suggestion();
 		if (info != null) {
-			int accent = tracker.isPinned(info.id()) ? GoalPanel.PINNED_COLOR : GoalPanel.SUGGESTED_COLOR;
-			GoalPanel.draw(g, font, info, 10, height - PANEL_HEIGHT, width - 20, GoalPanel.Style.FULL, accent, mouseX, mouseY);
+			GoalPanel.draw(g, font, info, 10, height - PANEL_HEIGHT, width - 20, GoalPanel.Style.FULL, GoalPanel.Mark.of(info.id()), mouseX, mouseY);
 		}
 	}
 
@@ -176,7 +175,8 @@ public final class ChecklistScreen extends Screen {
 		boolean available = GoalRanker.isAvailable(goal, byId);
 		int bg = goal.done() ? 0xC02E7D32 : goal.started() ? 0xC0A0761A : available ? 0xC0404040 : 0xC0181818;
 		g.fill(x + 1, y + 1, x + CELL - 1, y + CELL - 1, bg);
-		if (AdvancementTracker.INSTANCE.isPinned(t.id())) g.outline(x, y, CELL, CELL, GoalPanel.PINNED_COLOR);
+		GoalPanel.Mark mark = GoalPanel.Mark.of(t.id());
+		if (mark != GoalPanel.Mark.PLAIN) g.outline(x, y, CELL, CELL, mark == GoalPanel.Mark.PINNED ? GoalPanel.PINNED_COLOR : GoalPanel.SUGGESTED_COLOR);
 		g.item(t.icon(), x + 2, y + 2);
 		if (!goal.done() && !available) g.fill(x + 1, y + 1, x + CELL - 1, y + CELL - 1, 0x90000000);
 		if (goal.isChecklist() && !goal.done()) {
@@ -186,9 +186,14 @@ public final class ChecklistScreen extends Screen {
 		if (mouseX >= x && mouseX < x + CELL && mouseY >= y && mouseY < y + CELL && mouseY >= GRID_TOP && mouseY < bottom) {
 			hovered = t;
 			g.outline(x, y, CELL, CELL, 0xFFFFFFFF);
-			g.setComponentTooltipForNextFrame(font, List.of(t.title(),
-					Component.translatable(AdvancementTracker.INSTANCE.isPinned(t.id()) ? "achievehelper.screen.hover_pinned" : "achievehelper.screen.hover")
-							.withStyle(net.minecraft.ChatFormatting.GRAY)), mouseX, mouseY);
+			List<Component> lines = new ArrayList<>();
+			lines.add(t.title());
+			if (mark == GoalPanel.Mark.SUGGESTED) {
+				lines.add(Component.translatable("achievehelper.mark.suggested").withStyle(net.minecraft.ChatFormatting.AQUA));
+			}
+			lines.add(Component.translatable(mark == GoalPanel.Mark.PINNED ? "achievehelper.screen.hover_pinned" : "achievehelper.screen.hover")
+					.withStyle(net.minecraft.ChatFormatting.GRAY));
+			g.setComponentTooltipForNextFrame(font, lines, mouseX, mouseY);
 		}
 	}
 

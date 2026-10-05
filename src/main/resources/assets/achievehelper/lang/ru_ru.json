@@ -130,5 +130,7 @@
 	"achievehelper.pin.clear_all": "Открепить все",
 	"key.achievehelper.unpin_all": "Открепить все цели",
 	"achievehelper.screen.hover": "ЛКМ: закрепить · ПКМ: подробно",
-	"achievehelper.screen.hover_pinned": "ЛКМ: открепить · ПКМ: подробно"
+	"achievehelper.screen.hover_pinned": "ЛКМ: открепить · ПКМ: подробно",
+	"achievehelper.mark.pinned": "Закреплено тобой",
+	"achievehelper.mark.suggested": "Предложено автопилотом (N — другое, M — закрепить)"
 }

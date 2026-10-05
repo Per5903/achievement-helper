@@ -130,5 +130,7 @@
 	"achievehelper.pin.clear_all": "Unpin all",
 	"key.achievehelper.unpin_all": "Unpin all goals",
 	"achievehelper.screen.hover": "Left click: pin · Right click: details",
-	"achievehelper.screen.hover_pinned": "Left click: unpin · Right click: details"
+	"achievehelper.screen.hover_pinned": "Left click: unpin · Right click: details",
+	"achievehelper.mark.pinned": "Pinned by you",
+	"achievehelper.mark.suggested": "Suggested by the autopilot (N: another one, M: pin it)"
 }
