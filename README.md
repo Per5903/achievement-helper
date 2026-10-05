@@ -1,3 +1,5 @@
+<img src="docs/icon.png" width="96" align="right" alt="">
+
 # Achievement Helper (Fabric 26.2)
 
 [![Build](https://github.com/Per5903/achievement-helper/actions/workflows/build.yml/badge.svg)](https://github.com/Per5903/achievement-helper/actions/workflows/build.yml)

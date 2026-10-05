@@ -1,10 +1,16 @@
 # Changelog
 
-## Unreleased
+## 0.1.2
 
+- New mod icon.
 - Pinned and autopilot-suggested goals no longer look alike: pinned goals show a gold ★, the suggestion a
   small compass (with a tooltip); in the checklist the suggestion has a cyan frame and says so on hover.
   Pinning the suggestion used to look like "a different goal got pinned" because the next suggestion took its place.
+
+---
+
+Новая иконка мода. Закреплённые цели и предложения автопилота больше не путаются: у закреплённых золотая ★,
+у предложенной маленький компас (с подсказкой); в чек-листе предложенная ачивка в голубой рамке.
 
 ## 0.1.1
 
