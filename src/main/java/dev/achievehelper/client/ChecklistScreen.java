@@ -186,6 +186,9 @@ public final class ChecklistScreen extends Screen {
 		if (mouseX >= x && mouseX < x + CELL && mouseY >= y && mouseY < y + CELL && mouseY >= GRID_TOP && mouseY < bottom) {
 			hovered = t;
 			g.outline(x, y, CELL, CELL, 0xFFFFFFFF);
+			g.setComponentTooltipForNextFrame(font, List.of(t.title(),
+					Component.translatable(AdvancementTracker.INSTANCE.isPinned(t.id()) ? "achievehelper.screen.hover_pinned" : "achievehelper.screen.hover")
+							.withStyle(net.minecraft.ChatFormatting.GRAY)), mouseX, mouseY);
 		}
 	}
 

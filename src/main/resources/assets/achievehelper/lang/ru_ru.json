@@ -121,5 +121,14 @@
 	"achievehelper.option.side.top": "Сверху",
 	"achievehelper.option.side.bottom": "Снизу",
 	"achievehelper.option.highlightItems": "Подсветка предметов",
-	"achievehelper.option.highlightItems.tooltip": "Золотая рамка в сундуках и инвентаре, контур у предметов на земле"
+	"achievehelper.option.highlightItems.tooltip": "Золотая рамка в сундуках и инвентаре, контур у предметов на земле",
+	"achievehelper.pin.pin": "Закрепить",
+	"achievehelper.pin.unpin": "Открепить",
+	"achievehelper.pin.pinned": "Закреплено: %s",
+	"achievehelper.pin.unpinned": "Откреплено: %s",
+	"achievehelper.pin.cleared": "Все цели откреплены",
+	"achievehelper.pin.clear_all": "Открепить все",
+	"key.achievehelper.unpin_all": "Открепить все цели",
+	"achievehelper.screen.hover": "ЛКМ: закрепить · ПКМ: подробно",
+	"achievehelper.screen.hover_pinned": "ЛКМ: открепить · ПКМ: подробно"
 }

@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+- Needed items in containers: thicker gold frame and a softly pulsing gold glow behind the item.
+- Unpinning: Pin/Unpin button on the detail screen, "Unpin all" in settings and as a key (unbound by default),
+  hover hint in the checklist (left click pins or unpins), action-bar message on every pin change.
+
 ## 0.1.0
 
 First release, for Minecraft 26.2 (Fabric). Client-side only: works in singleplayer and on any server.

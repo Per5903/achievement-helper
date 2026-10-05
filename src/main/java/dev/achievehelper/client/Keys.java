@@ -18,6 +18,7 @@ public final class Keys {
 	private static KeyMapping toggleHud;
 	private static KeyMapping nextSuggestion;
 	private static KeyMapping pinSuggestion;
+	private static KeyMapping unpinAll;
 
 	private Keys() {
 	}
@@ -28,6 +29,7 @@ public final class Keys {
 		toggleHud = key("toggle_hud", GLFW.GLFW_KEY_H, category);
 		nextSuggestion = key("next", GLFW.GLFW_KEY_N, category);
 		pinSuggestion = key("pin", GLFW.GLFW_KEY_M, category);
+		unpinAll = key("unpin_all", GLFW.GLFW_KEY_UNKNOWN, category);
 		ClientTickEvents.END_CLIENT_TICK.register(Keys::tick);
 	}
 
@@ -52,6 +54,9 @@ public final class Keys {
 		}
 		while (pinSuggestion.consumeClick()) {
 			tracker.pinSuggestion();
+		}
+		while (unpinAll.consumeClick()) {
+			tracker.unpinAll();
 		}
 	}
 }

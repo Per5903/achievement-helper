@@ -121,5 +121,14 @@
 	"achievehelper.option.side.top": "Top",
 	"achievehelper.option.side.bottom": "Bottom",
 	"achievehelper.option.highlightItems": "Highlight needed items",
-	"achievehelper.option.highlightItems.tooltip": "Gold frame in chests and the inventory, outline on items lying on the ground"
+	"achievehelper.option.highlightItems.tooltip": "Gold frame in chests and the inventory, outline on items lying on the ground",
+	"achievehelper.pin.pin": "Pin",
+	"achievehelper.pin.unpin": "Unpin",
+	"achievehelper.pin.pinned": "Pinned: %s",
+	"achievehelper.pin.unpinned": "Unpinned: %s",
+	"achievehelper.pin.cleared": "All goals unpinned",
+	"achievehelper.pin.clear_all": "Unpin all",
+	"key.achievehelper.unpin_all": "Unpin all goals",
+	"achievehelper.screen.hover": "Left click: pin · Right click: details",
+	"achievehelper.screen.hover_pinned": "Left click: unpin · Right click: details"
 }

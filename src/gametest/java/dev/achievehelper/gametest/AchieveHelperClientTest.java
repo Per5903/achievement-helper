@@ -90,6 +90,7 @@ public final class AchieveHelperClientTest implements FabricClientGameTest {
 			checkDisplay(context, world);
 			checkFeedingAndItems(context, world);
 			checkHudEditor(context);
+			checkUnpin(context);
 
 			world.getServer().runCommand("advancement grant @a only " + DIET + " golden_apple");
 			world.getConnection().waitForClientboundPackets();
@@ -261,6 +262,29 @@ public final class AchieveHelperClientTest implements FabricClientGameTest {
 		context.setScreen(() -> null);
 		world.getServer().runCommand("clear @a");
 		world.getServer().runCommand("kill @e[type=item]");
+	}
+
+	/** The detail screen's button unpins; "unpin all" clears every pin. */
+	private static void checkUnpin(ClientGameTestContext context) {
+		context.runOnClient(mc -> {
+			if (!AdvancementTracker.INSTANCE.isPinned(CATS)) AdvancementTracker.INSTANCE.togglePin(CATS);
+		});
+		context.setScreen(() -> new GoalDetailScreen(null, CATS));
+		context.waitTicks(3);
+		context.takeScreenshot("achievehelper-detail-unpin");
+		// The pin button sits in the lower right corner (GUI 427x240 at scale 2).
+		context.getInput().setCursorPos((427 - 10 - 55) * 2, (240 - 16) * 2);
+		context.waitTick();
+		context.getInput().pressMouse(0);
+		context.waitTicks(2);
+		context.runOnClient(mc -> check(!AdvancementTracker.INSTANCE.isPinned(CATS), "the detail screen button should unpin"));
+		context.setScreen(() -> null);
+		context.runOnClient(mc -> {
+			AdvancementTracker tracker = AdvancementTracker.INSTANCE;
+			tracker.unpinAll();
+			check(!tracker.hasPins(), "unpin all leaves no pins");
+			for (String id : new String[] {DIET, BIOMES}) tracker.togglePin(id);
+		});
 	}
 
 	/** Dragging the panel to the lower right re-anchors it there. */

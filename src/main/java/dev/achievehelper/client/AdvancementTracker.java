@@ -172,9 +172,25 @@ public final class AdvancementTracker {
 		return pins.contains(id);
 	}
 
+	/** Pins or unpins, and says which in the action bar. */
 	public void togglePin(String id) {
-		pins.toggle(id);
+		boolean pinned = pins.toggle(id);
 		savePins();
+		TrackedGoal t = goals.get(id);
+		if (t != null) {
+			net.minecraft.client.Minecraft.getInstance().gui.hud.setOverlayMessage(
+					Component.translatable(pinned ? "achievehelper.pin.pinned" : "achievehelper.pin.unpinned", t.title()), false);
+		}
+	}
+
+	public void unpinAll() {
+		pins.setAll(List.of());
+		savePins();
+		net.minecraft.client.Minecraft.getInstance().gui.hud.setOverlayMessage(Component.translatable("achievehelper.pin.cleared"), false);
+	}
+
+	public boolean hasPins() {
+		return !pins.ids().isEmpty();
 	}
 
 	/** Goals to draw on the HUD: pins first, then (autopilot) the current suggestion. */

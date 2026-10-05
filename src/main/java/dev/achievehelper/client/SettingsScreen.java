@@ -26,8 +26,9 @@ public final class SettingsScreen extends OptionsSubScreen {
 		ModConfig c = AdvancementTracker.INSTANCE.config();
 
 		list.addHeader(Component.translatable("achievehelper.settings.hud"));
-		list.addBig(Button.builder(Component.translatable("achievehelper.editor.open"),
-				b -> minecraft.gui.setScreen(new HudEditorScreen(this))).build());
+		list.addSmall(
+				Button.builder(Component.translatable("achievehelper.editor.open"), b -> minecraft.gui.setScreen(new HudEditorScreen(this))).build(),
+				Button.builder(Component.translatable("achievehelper.pin.clear_all"), b -> AdvancementTracker.INSTANCE.unpinAll()).build());
 		list.addSmall(
 				bool("hud", () -> c.hud, v -> c.hud = v),
 				side("hudSide", "left", "right", () -> c.hudCorner.right(), v -> c.hudCorner = ModConfig.HudCorner.of(v, c.hudCorner.bottom())),

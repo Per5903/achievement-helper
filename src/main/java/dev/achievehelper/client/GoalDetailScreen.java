@@ -31,6 +31,19 @@ public final class GoalDetailScreen extends Screen {
 	}
 
 	@Override
+	protected void init() {
+		int w = 110;
+		addRenderableWidget(net.minecraft.client.gui.components.Button.builder(pinLabel(), b -> {
+			AdvancementTracker.INSTANCE.togglePin(goalId);
+			b.setMessage(pinLabel());
+		}).bounds(width - w - 10, height - 26, w, 20).build());
+	}
+
+	private Component pinLabel() {
+		return Component.translatable(AdvancementTracker.INSTANCE.isPinned(goalId) ? "achievehelper.pin.unpin" : "achievehelper.pin.pin");
+	}
+
+	@Override
 	public void extractRenderState(GuiGraphicsExtractor g, int mouseX, int mouseY, float delta) {
 		super.extractRenderState(g, mouseX, mouseY, delta);
 		g.fill(0, 0, width, height, 0xA0101010);
@@ -49,7 +62,7 @@ public final class GoalDetailScreen extends Screen {
 				accent, mouseX, mouseY) + 6;
 
 		int top = y;
-		int bottom = height - 6;
+		int bottom = height - 32;
 		g.enableScissor(0, top, width, bottom);
 		int cy = top - (int) scroll;
 		cy = section(g, Component.translatable("achievehelper.detail.remaining", t.remainingIcons().size()), 0xFFFFDD55,
