@@ -1,5 +1,8 @@
 # Achievement Helper (Fabric 26.2)
 
+[![Build](https://github.com/Per5903/achievement-helper/actions/workflows/build.yml/badge.svg)](https://github.com/Per5903/achievement-helper/actions/workflows/build.yml)
+**Скачать:** [последний релиз](https://github.com/Per5903/achievement-helper/releases/latest)
+
 Клиентский мод: показывает, **что осталось** сделать для ачивки, иконками, а не текстом.
 Работает в одиночной игре и на любых серверах (на сервер ставить не нужно).
 
@@ -71,6 +74,12 @@
 ```
 Gradle запускается на Java 21–25. JDK 25 для компиляции он скачает сам (foojay), если его нет.
 
+## Релиз
+1. Поднять `version` в `gradle.properties` и дописать раздел в `CHANGELOG.md`.
+2. `git tag v<версия> && git push --tags` — GitHub Actions соберёт jar и создаст релиз.
+3. Для Modrinth один раз: в настройках репозитория добавить секрет `MODRINTH_TOKEN`
+   (Modrinth → Settings → PATs, право *Create versions*) и переменную `MODRINTH_PROJECT_ID` (ID проекта).
+
 ## Структура
 ```
 core/      чистая Java без Minecraft: Goal, GoalRanker, ProgressDiff, PinList, CriterionNames, Hint (+ тесты)
@@ -87,4 +96,6 @@ gametest/  клиентский game-тест Fabric
 - [x] Фильтры в чек-листе
 - [x] Модели мобов для вариантов (кошки, волки, лягушки), экран «подробно»
 - [x] Экран настроек (свой, плюс кнопка в Mod Menu, если он установлен)
-- [ ] Stonecutter для нескольких версий (26.2 + 26.3), CI-сборка и публикация на Modrinth
+- [x] CI-сборка, игровой тест на GitHub, релизы по тегу
+- [ ] Публикация на Modrinth (workflow готов, нужен токен — см. «Релиз»)
+- [ ] Stonecutter для нескольких версий (26.2 + 26.3)

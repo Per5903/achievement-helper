@@ -1,0 +1,45 @@
+name: Build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: 25
+      - uses: gradle/actions/setup-gradle@v6
+      - name: Build and run unit tests
+        run: ./gradlew build
+      - uses: actions/upload-artifact@v7
+        with:
+          name: achievehelper-jar
+          path: build/libs/*.jar
+
+  # Starts the real Minecraft client on a virtual screen, builds a world and checks the HUD, hints,
+  # outlines, screens and settings; screenshots are kept as an artifact.
+  client-gametest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: 25
+      - uses: gradle/actions/setup-gradle@v6
+      - name: Install virtual display
+        run: sudo apt-get update && sudo apt-get install -y xvfb libgl1-mesa-dri
+      - name: Run client game test
+        run: xvfb-run -a -s "-screen 0 1280x720x24" ./gradlew runClientGameTest
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: gametest-screenshots
+          path: build/run/clientGameTest/screenshots/
