@@ -1,10 +1,16 @@
 # Changelog
 
-## Unreleased
+## 0.1.1
 
 - Needed items in containers: thicker gold frame and a softly pulsing gold glow behind the item.
 - Unpinning: Pin/Unpin button on the detail screen, "Unpin all" in settings and as a key (unbound by default),
   hover hint in the checklist (left click pins or unpins), action-bar message on every pin change.
+
+---
+
+Нужные предметы в сундуках и инвентаре заметнее: толстая золотая рамка и пульсирующая подложка.
+Открепление: кнопка «Открепить» на экране «подробно», «Открепить все» в настройках и клавишей,
+подсказка при наведении в чек-листе, сообщение над хотбаром при закреплении и откреплении.
 
 ## 0.1.0
 
