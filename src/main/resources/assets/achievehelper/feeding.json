@@ -1,0 +1,46 @@
+{
+  "_comment": "What to feed a mob for advancements about breeding or taming. 'advancements' maps an advancement to a mode; each mode maps a mob to items, best first. Animals from other mods fall back to whatever their isFood() accepts. Optional note: lang key achievehelper.feed.<mode>.<namespace>.<mob>.",
+  "advancements": {
+    "minecraft:husbandry/bred_all_animals": "breed",
+    "minecraft:husbandry/breed_an_animal": "breed",
+    "minecraft:husbandry/complete_catalogue": "tame",
+    "minecraft:husbandry/whole_pack": "tame",
+    "minecraft:husbandry/tame_an_animal": "tame"
+  },
+  "breed": {
+    "minecraft:armadillo": ["minecraft:spider_eye"],
+    "minecraft:axolotl": ["minecraft:tropical_fish_bucket"],
+    "minecraft:bee": ["minecraft:poppy", "minecraft:dandelion", "minecraft:cornflower"],
+    "minecraft:camel": ["minecraft:cactus"],
+    "minecraft:cat": ["minecraft:cod", "minecraft:salmon"],
+    "minecraft:chicken": ["minecraft:wheat_seeds", "minecraft:melon_seeds", "minecraft:pumpkin_seeds"],
+    "minecraft:cow": ["minecraft:wheat"],
+    "minecraft:donkey": ["minecraft:golden_carrot", "minecraft:golden_apple"],
+    "minecraft:fox": ["minecraft:sweet_berries", "minecraft:glow_berries"],
+    "minecraft:frog": ["minecraft:slime_ball"],
+    "minecraft:goat": ["minecraft:wheat"],
+    "minecraft:hoglin": ["minecraft:crimson_fungus"],
+    "minecraft:horse": ["minecraft:golden_carrot", "minecraft:golden_apple"],
+    "minecraft:llama": ["minecraft:hay_block"],
+    "minecraft:mooshroom": ["minecraft:wheat"],
+    "minecraft:mule": ["minecraft:golden_carrot"],
+    "minecraft:nautilus": ["minecraft:cod", "minecraft:pufferfish"],
+    "minecraft:ocelot": ["minecraft:cod", "minecraft:salmon"],
+    "minecraft:panda": ["minecraft:bamboo"],
+    "minecraft:pig": ["minecraft:carrot", "minecraft:potato", "minecraft:beetroot"],
+    "minecraft:rabbit": ["minecraft:dandelion", "minecraft:carrot", "minecraft:golden_carrot"],
+    "minecraft:sheep": ["minecraft:wheat"],
+    "minecraft:sniffer": ["minecraft:torchflower_seeds"],
+    "minecraft:strider": ["minecraft:warped_fungus"],
+    "minecraft:turtle": ["minecraft:seagrass"],
+    "minecraft:wolf": ["minecraft:beef", "minecraft:porkchop", "minecraft:chicken"]
+  },
+  "tame": {
+    "minecraft:cat": ["minecraft:cod", "minecraft:salmon"],
+    "minecraft:wolf": ["minecraft:bone"],
+    "minecraft:parrot": ["minecraft:wheat_seeds"],
+    "minecraft:horse": ["minecraft:saddle"],
+    "minecraft:donkey": ["minecraft:saddle"],
+    "minecraft:llama": ["minecraft:hay_block"]
+  }
+}

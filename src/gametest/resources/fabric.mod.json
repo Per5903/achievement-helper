@@ -1,0 +1,10 @@
+{
+	"schemaVersion": 1,
+	"id": "achievehelper-gametest",
+	"version": "1.0.0",
+	"name": "Achievement Helper game tests",
+	"environment": "client",
+	"entrypoints": {
+		"fabric-client-gametest": ["dev.achievehelper.gametest.AchieveHelperClientTest"]
+	}
+}

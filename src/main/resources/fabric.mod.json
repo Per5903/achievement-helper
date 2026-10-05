@@ -1,0 +1,29 @@
+{
+	"schemaVersion": 1,
+	"id": "achievehelper",
+	"version": "${version}",
+	"name": "Achievement Helper",
+	"description": "Shows what's left for each advancement as icons, so you barely need to read them.",
+	"authors": ["Per5903"],
+	"contact": {
+		"sources": "https://github.com/Per5903/achievement-helper",
+		"issues": "https://github.com/Per5903/achievement-helper/issues"
+	},
+	"license": "MIT",
+	"icon": "assets/achievehelper/icon.png",
+	"environment": "client",
+	"entrypoints": {
+		"client": ["dev.achievehelper.AchieveHelper"],
+		"modmenu": ["dev.achievehelper.client.ModMenuIntegration"]
+	},
+	"mixins": ["achievehelper.mixins.json"],
+	"depends": {
+		"fabricloader": ">=0.19.5",
+		"minecraft": "~26.2",
+		"java": ">=25",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"modmenu": "*"
+	}
+}

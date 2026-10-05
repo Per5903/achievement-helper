@@ -1,0 +1,14 @@
+{
+	"required": true,
+	"package": "dev.achievehelper.mixin",
+	"compatibilityLevel": "JAVA_25",
+	"client": [
+		"AbstractContainerScreenMixin",
+		"ClientAdvancementsAccessor",
+		"ClientAdvancementsMixin",
+		"EntityRendererMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}

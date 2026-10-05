@@ -1,0 +1,123 @@
+{
+  "_comment": "Criterion name -> icon. 'biomes' applies to any advancement; 'advancements' overrides per advancement ('*' = every criterion of it). A value is an item id, or {item, mob, component, registry}: 'mob' draws the mob itself with the variant named by the criterion (component = data component holding it, registry = where variant ids live); 'item' is the fallback icon.",
+  "biomes": {
+    "minecraft:badlands": "minecraft:terracotta",
+    "minecraft:bamboo_jungle": "minecraft:bamboo",
+    "minecraft:basalt_deltas": "minecraft:basalt",
+    "minecraft:beach": "minecraft:sand",
+    "minecraft:birch_forest": "minecraft:birch_sapling",
+    "minecraft:cherry_grove": "minecraft:cherry_sapling",
+    "minecraft:cold_ocean": "minecraft:salmon",
+    "minecraft:crimson_forest": "minecraft:crimson_nylium",
+    "minecraft:dark_forest": "minecraft:dark_oak_sapling",
+    "minecraft:deep_cold_ocean": "minecraft:salmon_bucket",
+    "minecraft:deep_dark": "minecraft:sculk",
+    "minecraft:deep_frozen_ocean": "minecraft:blue_ice",
+    "minecraft:deep_lukewarm_ocean": "minecraft:tropical_fish_bucket",
+    "minecraft:deep_ocean": "minecraft:prismarine",
+    "minecraft:desert": "minecraft:cactus",
+    "minecraft:dripstone_caves": "minecraft:pointed_dripstone",
+    "minecraft:end_barrens": "minecraft:end_stone",
+    "minecraft:end_highlands": "minecraft:chorus_flower",
+    "minecraft:end_midlands": "minecraft:end_stone_bricks",
+    "minecraft:eroded_badlands": "minecraft:red_sand",
+    "minecraft:flower_forest": "minecraft:allium",
+    "minecraft:forest": "minecraft:oak_sapling",
+    "minecraft:frozen_ocean": "minecraft:ice",
+    "minecraft:frozen_peaks": "minecraft:packed_ice",
+    "minecraft:frozen_river": "minecraft:snowball",
+    "minecraft:grove": "minecraft:powder_snow_bucket",
+    "minecraft:ice_spikes": "minecraft:packed_ice",
+    "minecraft:jagged_peaks": "minecraft:goat_horn",
+    "minecraft:jungle": "minecraft:jungle_sapling",
+    "minecraft:lukewarm_ocean": "minecraft:tropical_fish",
+    "minecraft:lush_caves": "minecraft:glow_berries",
+    "minecraft:mangrove_swamp": "minecraft:mangrove_propagule",
+    "minecraft:meadow": "minecraft:cornflower",
+    "minecraft:mushroom_fields": "minecraft:mycelium",
+    "minecraft:nether_wastes": "minecraft:netherrack",
+    "minecraft:ocean": "minecraft:cod",
+    "minecraft:old_growth_birch_forest": "minecraft:birch_log",
+    "minecraft:old_growth_pine_taiga": "minecraft:podzol",
+    "minecraft:old_growth_spruce_taiga": "minecraft:spruce_log",
+    "minecraft:pale_garden": "minecraft:pale_oak_sapling",
+    "minecraft:plains": "minecraft:short_grass",
+    "minecraft:river": "minecraft:water_bucket",
+    "minecraft:savanna": "minecraft:acacia_sapling",
+    "minecraft:savanna_plateau": "minecraft:acacia_log",
+    "minecraft:small_end_islands": "minecraft:end_stone",
+    "minecraft:snowy_beach": "minecraft:snow",
+    "minecraft:snowy_plains": "minecraft:snow_block",
+    "minecraft:snowy_slopes": "minecraft:powder_snow_bucket",
+    "minecraft:snowy_taiga": "minecraft:sweet_berries",
+    "minecraft:soul_sand_valley": "minecraft:soul_sand",
+    "minecraft:sparse_jungle": "minecraft:melon_slice",
+    "minecraft:stony_peaks": "minecraft:calcite",
+    "minecraft:stony_shore": "minecraft:stone",
+    "minecraft:sulfur_caves": "minecraft:sulfur",
+    "minecraft:sunflower_plains": "minecraft:sunflower",
+    "minecraft:swamp": "minecraft:lily_pad",
+    "minecraft:taiga": "minecraft:spruce_sapling",
+    "minecraft:the_end": "minecraft:dragon_head",
+    "minecraft:the_void": "minecraft:structure_void",
+    "minecraft:warm_ocean": "minecraft:sea_pickle",
+    "minecraft:warped_forest": "minecraft:warped_nylium",
+    "minecraft:windswept_forest": "minecraft:spruce_leaves",
+    "minecraft:windswept_gravelly_hills": "minecraft:gravel",
+    "minecraft:windswept_hills": "minecraft:emerald_ore",
+    "minecraft:windswept_savanna": "minecraft:acacia_leaves",
+    "minecraft:wooded_badlands": "minecraft:dead_bush"
+  },
+  "advancements": {
+    "minecraft:husbandry/complete_catalogue": {
+      "*": {
+        "item": "minecraft:cat_spawn_egg",
+        "mob": "minecraft:cat",
+        "component": "minecraft:cat/variant",
+        "registry": "minecraft:cat_variant"
+      }
+    },
+    "minecraft:husbandry/whole_pack": {
+      "*": {
+        "item": "minecraft:wolf_spawn_egg",
+        "mob": "minecraft:wolf",
+        "component": "minecraft:wolf/variant",
+        "registry": "minecraft:wolf_variant"
+      }
+    },
+    "minecraft:husbandry/leash_all_frog_variants": {
+      "*": {
+        "item": "minecraft:frog_spawn_egg",
+        "mob": "minecraft:frog",
+        "component": "minecraft:frog/variant",
+        "registry": "minecraft:frog_variant"
+      }
+    },
+    "minecraft:husbandry/fishy_business": {
+      "cod": "minecraft:cod",
+      "pufferfish": "minecraft:pufferfish",
+      "salmon": "minecraft:salmon",
+      "tropical_fish": "minecraft:tropical_fish"
+    },
+    "minecraft:adventure/salvage_sherd": {
+      "desert_pyramid": "minecraft:sandstone",
+      "desert_well": "minecraft:suspicious_sand",
+      "ocean_ruin_cold": "minecraft:suspicious_gravel",
+      "ocean_ruin_warm": "minecraft:suspicious_sand",
+      "trail_ruins_common": "minecraft:suspicious_gravel",
+      "has_sherd": "minecraft:brush"
+    },
+    "minecraft:nether/loot_bastion": {
+      "*": "minecraft:chest"
+    },
+    "minecraft:adventure/root": {
+      "*": "minecraft:iron_sword"
+    },
+    "minecraft:husbandry/uh_oh": {
+      "*": "minecraft:tnt"
+    },
+    "minecraft:nether/distract_piglin": {
+      "*": "minecraft:gold_ingot"
+    }
+  }
+}
